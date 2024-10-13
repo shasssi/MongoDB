@@ -1,3 +1,11 @@
+- Read
+  - User.find() `fetch all records from collection`
+  - User.findById('67081c5b1f4465ce739c9bf4') `fetch record which matches Id`
+  - User.findOne({lastName: 'Kumar'}) `fetch first document that matches the filter`
+  - User.find({lastName: 'Kumar'}) `fetch all records that matches the filter`
+  - db.posts.find({}, {title: 1, date: 1}) `This example will only display the title and date fields in the results.`
+  - db.posts.find({}, {_id: 0, title: 1, date: 1}) `This time, let's exclude the _id field.`
+
 - Create
   - User.create({name: '', age: 11}) `create single record`
   - User.create([{name: '', age: 11}, {name: '', age: 12}]) `create bulk record`
@@ -12,3 +20,63 @@
 - Update
   - User.updateOne({ age: { $gt: 29 } }, { $set: { ...data } }) `updates first doucument that matches the filter`
   - User.updateMany({ lastName: 'kumar' }, { $set: { ...data } }) `updates all doucuments that matches the filter`
+
+
+##### MongoDB Aggregations
+
+- $group
+  `User.aggregate([
+    {
+      $group:
+        {
+          _id: "$gender", // column_name
+        },
+    },
+  ])`
+- $sort
+  `User.aggregate([
+      {
+          $sort: {
+              'age': -1 // 1: ascending, -1: descending
+          }
+      }
+  ]);`
+- $limit
+  `User.aggregate([
+      {
+          $limit: 5
+      }
+  ]);`
+- $lookup
+  `User.aggregate([
+      {
+          $lookup: {
+              from: 'orders',
+              localField: '_id', // from users collection
+              foreignField: 'user', // from orders collection
+              as: 'oder_details'
+          }
+      }
+  ]);`
+- $project 
+  `User.aggregate([
+      {
+          $project: {
+              "firstName": 1,
+              "age": 1,
+              "avgAge": 1
+          }
+      },
+      {
+          $limit: 5
+      }
+  ]);`
+- $match
+  `User.aggregate([
+      {
+          $match: { gender: 'Male' }
+      },
+      {
+          $count: 'totalMale'
+      }
+  ]);`

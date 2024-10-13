@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export class DBConnect {
+export default class DBConnect {
     static dbInstance: any;
     static async connect(url: string) {
         if (!this.dbInstance) {

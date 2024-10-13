@@ -1,9 +1,10 @@
 import dotenv from "dotenv";
-import { DBConnect } from "./db";
+import DBConnect from "./db";
 import Delete from "./controllers/delete";
 import Create from "./controllers/create";
 import Update from "./controllers/update";
-
+import Read from "./controllers/read";
+import { count, group, limit, sort } from "./aggregate";
 dotenv.config();
 
 async function initDB() {
@@ -49,8 +50,20 @@ async function updateAction() {
     // const result1 = await Update.collection('order')?.updateMany({ amount: {$gt: 200, $lt: 900} }, { amount: 400 });
     console.log(result1);
 }
+async function readAction() {
+    const result1 = await Read.collection('user')?.find();
+    const result2 = await Read.collection('user')?.find({ lastName: 'Kumari' });
+    const result3 = await Read.collection('user')?.findById('67081c5b1f4465ce739c9bf4');
+    const result4 = await Read.collection('user')?.findOne({ lastName: 'Kumari' });
+    console.log(result4);
+}
 
 initDB();
 // createAction();
 // deleteAction();
 // updateAction();
+// readAction();
+// group();
+// sort();
+// limit();
+// count();
