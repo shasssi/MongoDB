@@ -1,39 +1,27 @@
-import mongoose, { Model } from "mongoose";
 import Order from "../models/order";
-import Users from "../models/user";
+import User from "../models/user";
 
 interface ICreate {
     singleInsert(data: any): void;
     bulkInsert(data: any): void;
 }
 
-class UserCollection implements ICreate {
+class Collection implements ICreate {
+    model: any;
+    constructor(model: any) {
+        this.model = model;
+    }
     async singleInsert(data: any) {
-        const newUser = await Users.create({
+        const newUser = await this.model.create({
             ...data,
         });
         return newUser;
     }
     async bulkInsert(data: any) {
-        const newUser = await Users.create([
+        const newUser = await this.model.create([
             ...data,
         ]);
         return newUser;
-    }
-}
-
-class OrderCollection implements ICreate {
-    async singleInsert(data: any) {
-        const newOrder = await Order.create({
-            ...data,
-        });
-        return newOrder;
-    }
-    async bulkInsert(data: any) {
-        const newOrder = await Order.create([
-            ...data,
-        ]);
-        return newOrder;
     }
 }
 
@@ -41,9 +29,9 @@ class OrderCollection implements ICreate {
 export default class Create {
     static collection(name: string) {
         if (name.toLowerCase() === 'user') {
-            return new UserCollection();
+            return new Collection(User);
         } else if (name.toLowerCase() === 'order') {
-            return new OrderCollection();
+            return new Collection(Order);
         }
     }
 }
