@@ -5,6 +5,7 @@ import Create from "./controllers/create";
 import Update from "./controllers/update";
 import Read from "./controllers/read";
 import { count, group, limit, sort } from "./aggregate";
+import { aggregatePagination, pagination } from "./pagination";
 dotenv.config();
 
 async function initDB() {
@@ -67,3 +68,5 @@ initDB();
 // sort();
 // limit();
 // count();
+// pagination();
+// aggregatePagination();

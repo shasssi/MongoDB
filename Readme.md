@@ -1,3 +1,5 @@
+##### MongoDB CRUD
+
 - Read
   - User.find() `fetch all records from collection`
   - User.findById('67081c5b1f4465ce739c9bf4') `fetch record which matches Id`
@@ -80,3 +82,47 @@
           $count: 'totalMale'
       }
   ]);`
+
+##### MongoDB Pagination
+  `const limit = 5;
+   const page = 1;
+   // Calculate the offset based on the page number and limit
+   const offset = (page - 1) * limit;
+  `
+  - User.find().skip(offset).limit(limit);
+  - using aggregation
+  `User.aggregate([
+      {
+          '$facet': {
+              pagination: [
+                  {
+                      $count: 'noOfRecords'
+                  },
+                  {
+                      $addFields: {
+                          limit: limit,
+                          offset: offset
+                      }
+                  }
+              ],
+              data: [
+                  {
+                      $skip: offset
+                  },
+                  {
+                      $limit: limit
+                  },
+                  {
+                      $project: {
+                          id: '$_id',
+                          _id: 0,
+                          firstName: 1,
+                          lastName: 1,
+                          age: 1,
+                          createdAt: 1
+                      }
+                  }
+              ]
+          }
+      },
+  ])`
