@@ -1,4 +1,4 @@
-##### MongoDB CRUD
+##### [MongoDB CRUD](https://github.com/shasssi/MongoDB/tree/master/src/controllers)
 
 - Read
   - User.find() `fetch all records from collection`
@@ -24,7 +24,7 @@
   - User.updateMany({ lastName: 'kumar' }, { $set: { ...data } }) `updates all doucuments that matches the filter`
 
 
-##### MongoDB Aggregations
+##### [MongoDB Aggregations](https://github.com/shasssi/MongoDB/blob/master/src/aggregate.ts)
 
 - $group
   `User.aggregate([
@@ -83,7 +83,7 @@
       }
   ]);`
 
-##### MongoDB Pagination
+##### [MongoDB Pagination](https://github.com/shasssi/MongoDB/blob/master/src/pagination.ts)
   `const limit = 5;
    const page = 1;
    // Calculate the offset based on the page number and limit
