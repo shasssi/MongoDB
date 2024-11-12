@@ -92,7 +92,8 @@
   `
   - User.find().skip(offset).limit(limit);
   - using aggregation
-  `User.aggregate([
+  - `$facet enables various/multiple aggregations on the same set of input documents, without needing to retrieve the input documents multiple times.`
+  - `User.aggregate([
       {
           '$facet': {
               pagination: [
