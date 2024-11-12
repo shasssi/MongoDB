@@ -24,6 +24,10 @@
    - works well for CMS where flexibilty is needed to store varied content formats(text, images, videos)
 4. IoT Applications
    - handle high-velocity data ingestion, handles continuous streams of data from devices efficiently.
+  
+##### Sharding and Partitioning
+   - Sharding: Spreads the data across multiple databases/servers for scalabity.(Based on userId or geo-location)
+   - Partitioning: Divides data within a single database for optimized query performance. (large table (finanical records) where queries need to access only specific parts of the data), can be divided based on (dates or range).
 
 ##### [MongoDB CRUD](https://github.com/shasssi/MongoDB/tree/master/src/controllers)
 
