@@ -1,3 +1,14 @@
+##### SQL vs NoSQL
+1. Data Structure
+   - SQL: Strucutured, uses tables with predefined schemas (rows & columns).
+   - NoSQL: Flexible, often schema-less (documents with key value pairs).
+2. Scalability
+   - SQL: Vertically scalable, performance is improved by adding more power(CPU, RAM) to an exisiting server.
+   - NoSQL: Horizontally scalable, allowing the database to handle more traffics by adding more servers. Suitable for distributed data systems.
+3. ACID Complaince
+   - SQL: supports acid properties, making it reliable for complex, multi-step transactions.
+   - NoSQL: It prioritizes speed and flexibility at the const of strict consistency. MongoDB can support ACID properties at a certain level.
+
 ##### [MongoDB CRUD](https://github.com/shasssi/MongoDB/tree/master/src/controllers)
 
 - Read
