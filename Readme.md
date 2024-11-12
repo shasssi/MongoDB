@@ -20,6 +20,7 @@
   - User.collection.drop() `drop collection from DB`
 
 - Update
+  - User.findByIdAndUpdate(id, { ...data }) `update the documenet that matches id`
   - User.updateOne({ age: { $gt: 29 } }, { $set: { ...data } }) `updates first doucument that matches the filter`
   - User.updateMany({ lastName: 'kumar' }, { $set: { ...data } }) `updates all doucuments that matches the filter`
 
