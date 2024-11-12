@@ -1,13 +1,29 @@
 ##### SQL vs NoSQL
 1. Data Structure
-   - SQL: Strucutured, uses tables with predefined schemas (rows & columns).
+   - SQL: Structured, uses tables with predefined schemas (rows & columns).
    - NoSQL: Flexible, often schema-less (documents with key value pairs).
 2. Scalability
    - SQL: Vertically scalable, performance is improved by adding more power(CPU, RAM) to an exisiting server.
    - NoSQL: Horizontally scalable, allowing the database to handle more traffics by adding more servers. Suitable for distributed data systems.
 3. ACID Complaince
    - SQL: supports acid properties, making it reliable for complex, multi-step transactions.
-   - NoSQL: It prioritizes speed and flexibility at the const of strict consistency. MongoDB can support ACID properties at a certain level.
+   - NoSQL: It prioritizes speed and flexibility at the cost of strict consistency. MongoDB can support ACID properties at a certain level.
+
+##### SQL Use Cases
+1. Customer Relationship Management (CRM) systems
+   - ideal for managing structured customer data (name, addresses, purchase history) and managing relationship b/w different entities such as orders and customers.
+2. Enterprise Resource Planning (ERP) System
+3. Inventory Management
+   - it can efeeciently handle structured inventory data, allowing business to track items, suppliers and orders while ensuring data integrity and accuracy.
+##### NoSQL Use Cases
+1. Social Media Applications:
+   - storing vast amounts of user-generated content (posts, comments, likes)
+2. Real-Time Analytics:
+   - can manage high speed data for real time analytics in application like recommendation engines or data-driven online advertising.
+3. Content Management System (CMS)
+   - works well for CMS where flexibilty is needed to store varied content formats(text, images, videos)
+4. IoT Applications
+   - handle high-velocity data ingestion, handles continuous streams of data from devices efficiently.
 
 ##### [MongoDB CRUD](https://github.com/shasssi/MongoDB/tree/master/src/controllers)
 
