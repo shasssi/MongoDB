@@ -27,12 +27,12 @@ async function createAction() {
     })
     const newUsers = await Create.collection('user')?.bulkInsert([
         {
-            firstName: 'Shravan',
+            firstName: 'Sr....',
             lastName: 'Kumar',
             age: 21
         },
         {
-            firstName: 'Ruby',
+            firstName: 'R....',
             lastName: 'Kumari',
             age: 24,
         }
